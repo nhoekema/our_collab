@@ -1,0 +1,27 @@
+<div class="container">
+
+<h1> Welcome <%= current_user.email %> </h1>
+
+<div class="row">
+	<% @blog_posts.each do |blog_post| %>
+	<div class= "col-md-6"
+	<div class="panel panel-default">
+		<%= link_to blog_post.title, blog_post %>
+		</div>
+	<div class="panel-body">
+		by <%= blog_post.user.email %> <br />
+		<p> Created at: <%= blog_post.created_at.strftime('%m/%d/%Y at %I:%M%p') %></p>
+		<p><%= blog_post.blog_entry[0..200] %>...<% link_to "Read More", blog_post %></p>
+	</div>
+	<div class="panel-footer">
+		<%= link_to "Edit", edit_blog_post_path(blog_post), class: "btn btn-warning" %>
+		<%= link_to "Destroy", blog_post, method: :delete, data: {confirm: "are you sure?"}, class: "btn btn-danger" %>
+	</div>
+</div>
+</div>
+<% end %>
+</div>
+
+<br />
+<%= link_to "New Blog Post", new_blog_post_path, class: "btn btn-success" %>
+</div>
