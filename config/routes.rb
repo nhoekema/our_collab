@@ -1,14 +1,22 @@
 Rails.application.routes.draw do
-	
-
 
   devise_for :users
 
+  get "profiles/:id" => "profiles#show", as: :profile
+
+  get "profiles" => "profiles#index"
+
   resources :users, only: [:show, :index]
 
-  resources :blog_post
+  resources :blog_posts
 
-  root "blog_post#index"
+  resources :tweets do
+    resource :like
+  end
+
+  resources :relationships
+
+  root "blog_posts#index"
 
   root "welcome#index"
 
