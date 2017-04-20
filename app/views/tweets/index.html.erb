@@ -1,17 +1,16 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
-  <div class="jumbotron text-center" style="background-image: url(http://thedailynews.cc/wp-content/gallery/legacy-field/spt-0823-cs-Legacy-Visitors-side-Pano-1.jpg")>
+  <div class="jumbotron text-center" style="background-image: url(https://fortunedotcom.files.wordpress.com/2014/09/130024733.jpg?w=1100&quality=85")>
     <h1>Alex & Nathan's Betting Newsroom</h1>
   </div>
 
-<div class="container">
-<table>
+
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Message</th>
-      <th>User</th>
-      <th>Likes</th>
-      <th colspan="3"></th>
+      <th><h3>Tweet</h3></th>
+      <th><h3>User</h3></th>
+      <th><h3>Likes</h3></th>
     </tr>
   </thead>
   <tbody>
@@ -20,14 +19,17 @@
         <td><%= tweet.message %></td>
         <td><%= tweet.user.username %></td>
         <td><%= tweet.likes.count %></td>
-        <td><%= link_to 'Show Tweet', tweet, class: "btn btn-primary" %></td>
-        <td><%= link_to 'Edit Tweet', edit_tweet_path(tweet), class: "btn btn-primary" %></td>
-        <td><%= link_to 'Delete Tweet', tweet, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.id == tweet.user_id %>
+            <td><%= link_to 'Show Tweet', tweet, class: "btn btn-primary" %></td>
+            <td><%= link_to 'Edit Tweet', edit_tweet_path(tweet), class: "btn btn-primary" %></td>
+            <td><%= link_to 'Delete Tweet', tweet, class: "btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+            <td><%= link_to 'Show Tweet', tweet, class: "btn btn-primary" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-</div>
 <br>
     <%= link_to 'New Tweet', new_tweet_path, class: "btn btn-primary" %>
     <%= link_to "User Betting Profiles", profiles_path, class: "btn btn-primary" %>

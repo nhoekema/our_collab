@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :index]
 
+  resources :comments, only: [:edit, :create, :update, :destroy]
+
   resources :blog_posts
 
   resources :tweets do

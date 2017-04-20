@@ -1,3 +1,9 @@
+<p id="notice"><%= notice %></p>
+<div class="jumbotron text-center" style="background-image: url(https://fortunedotcom.files.wordpress.com/2014/09/130024733.jpg?w=1100&quality=85")>
+	<h1>Alex & Nathan's Sports Media Site</h1>
+</div>
+
+<div class="container">
 <h2>Log in</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -11,5 +17,5 @@
     <%= f.button :submit, "Log in" %>
   </div>
 <% end %>
-
+</div>
 <%= render "devise/shared/links" %>

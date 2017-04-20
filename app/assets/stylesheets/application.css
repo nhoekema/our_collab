@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+	background: #bfbfbf;
+	font-family: 'Catamaran', sans-serif;
+	color: #262626;
+}
+
+.container {
+	background-color: rgba(102, 102, 102, 0.5);
+	margin-top: 20px;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	border-radius: 3px;
+}
+
+.jumbotron {
+	color: #ffffff;
+}
